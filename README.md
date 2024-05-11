@@ -2,11 +2,9 @@
 # Ex.No:5 Create Your Own Content Providers to get Contacts details.
 
 ## AIM:
-
 To create your own content providers to get contacts details using Android Studio.
 
 ## EQUIPMENTS REQUIRED:
-
 Android Studio(Latest Version)
 
 ## ALGORITHM:
@@ -33,7 +31,6 @@ Developed by: Ann Blessy Philips
 Registeration Number : 212222040008
 */
 ```
-
 ### In activity_main.xml
 ```
 <?xml version="1.0" encoding="utf-8"?>
@@ -50,7 +47,6 @@ Registeration Number : 212222040008
         android:text="Load Contacts"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="50dp"/>
-
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
@@ -62,7 +58,6 @@ Registeration Number : 212222040008
         android:layout_marginRight="20dp"/>
 </RelativeLayout>
 ```
-
 ### In MainActivity.java
 ```
 package com.example.getcontacts;
@@ -77,19 +72,15 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
-
     private TextView textViewContacts;
     int count=0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         Button buttonLoadContacts = findViewById(R.id.button);
         textViewContacts = findViewById(R.id.textView);
-
         buttonLoadContacts.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -100,7 +91,6 @@ public class MainActivity extends AppCompatActivity {
 
     private void loadContacts() {
         StringBuilder stringBuilder = new StringBuilder();
-
         Cursor cursor = getContentResolver().query(ContactsContract.CommonDataKinds.Phone.CONTENT_URI,
                 null, null, null, null);
 
@@ -121,11 +111,9 @@ public class MainActivity extends AppCompatActivity {
         } else {
             Toast.makeText(this, "No contacts found", Toast.LENGTH_SHORT).show();
         }
-
         System.out.println("Total Count of Contacts: "+count);}
 }
 ```
-
 ### In AndroidManifest.xml
 ```
 <?xml version="1.0" encoding="utf-8"?>
@@ -148,7 +136,6 @@ public class MainActivity extends AppCompatActivity {
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -156,13 +143,9 @@ public class MainActivity extends AppCompatActivity {
 
 </manifest>
 ```
-
 ## OUTPUT
-
-![WhatsApp Image 2024-03-14 at 09 03 34_7dfe0b9d](https://github.com/AnnBlessy/contentprovider/assets/119477835/48bf9459-df5e-43e9-bd37-d77442301d78)
-
-![exp-5](https://github.com/AnnBlessy/contentprovider/assets/119477835/3a229e52-0ddc-41d2-a259-8531c3a88016)
-
+![WhatsApp Image 2024-03-14 at 09 03 34_7dfe0b9d](https://github.com/AnnBlessy/contentprovider/assets/119477835/4f1eaa44-908d-4993-91aa-d2c3c68810e1)
+![exp-5](https://github.com/AnnBlessy/contentprovider/assets/119477835/2e1b4c8c-4918-4bc7-a147-9223ff4d6c8d)
 
 ## RESULT
 Thus a Simple Android Application create your own content providers to get contacts details using Android Studio is developed and executed successfully.
